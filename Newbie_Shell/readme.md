@@ -1,20 +1,23 @@
-# My Perfect Linux Terminal
+# 💻 My Perfect Linux Terminal
 
-In questa cartella spiego passo-passo come ho configurato il mio terminale Linux per ottenere un setup perfetto, funzionale e bello da vedere, usando **Kitty**, **Starship**, **Fastfetch** e temi coordinati.
+Ecco come ho configurato il mio terminale Linux per ottenere un setup **perfetto, funzionale e bello da vedere**, usando:
+
+> 🐱 **Kitty** • 🚀 **Starship** • ⚡ **Fastfetch** • 
 
 ---
 
-## 1. Installare Kitty
+## 🧩 1. Installare Kitty
 
-[Kitty](https://sw.kovidgoyal.net/kitty/) è un terminale moderno, veloce e personalizzabile.  
-Per installarlo su Debian/Ubuntu:
+[Kitty](https://sw.kovidgoyal.net/kitty/) è un terminale moderno, veloce e altamente personalizzabile.
+
+### 🐧 Installazione su Debian/Ubuntu
 
 ```bash
 sudo apt update
 sudo apt install kitty
 ```
 
-Oppure, per avere sempre l’ultima versione:
+Oppure, per avere **sempre l’ultima versione**:
 
 ```bash
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh
@@ -22,29 +25,33 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh
 
 ---
 
-## 2. Scegliere il tema Dracula con Kitty Themes
+## 🎨 2. Scegliere il Tema Dracula
 
-Ho scelto il tema **Dracula**, così da avere un terminale coordinato con il mio tema di sistema.  
-Per installare i temi di Kitty:
+Ho scelto il tema **Dracula** per avere un terminale coordinato al mio tema di sistema.
+
+Per installare e scegliere i temi di Kitty:
 
 ```bash
 kitten themes
 ```
 
-Sfoglia i temi e scegli il tuo preferito: il mio? **Dracula**
-
+📌 Sfoglia i temi e scegli il tuo preferito — il mio è **Dracula** 🦇
 
 ---
 
-## 3. Configurare Kitty
+## ⚙️ 3. Configurare Kitty
 
-Il file di configurazione principale di Kitty si trova in:
+Il file principale di configurazione di Kitty si trova in:
 
 ```
 ~/.config/kitty/kitty.conf
 ```
+Edito il file con 
+```
+nano ~/.config/kitty/kitty.conf
+```
 
-Ho applicato queste modifiche:
+Ecco le mie modifiche principali:
 
 ```conf
 # Nascondo le decorazioni della finestra
@@ -57,95 +64,102 @@ background_opacity 0.99
 map ctrl+shift+t new_tab
 map alt+4 close_tab
 
-# Theme Dracula
+# Tema Dracula
 # BEGIN_KITTY_THEME
 include current-theme.conf
 # END_KITTY_THEME
 ```
-
-
----
-
-## 4. Rendere Kitty il terminale di default
-
-Per far sì che Kitty si apra con **Ctrl+Alt+T**:
-
-1. Aprire le impostazioni delle scorciatoie da tastiera del vostro DE (GNOME, KDE, XFCE…).
-2. Creare una nuova scorciatoia:
-   - Comando: `kitty`
-   - Scorciatoia: `Ctrl+Alt+T`
+Ctrl+o per salvare / Ctrl+x per chiudere nano 
 
 ---
 
-## 5. Installare Starship Prompt
+## 🧰 4. Impostare Kitty come Terminale di Default
 
-[Starship](https://starship.rs/) è un prompt moderno, veloce e personalizzabile.  
-Installazione:
+Per aprire Kitty con **Ctrl + Alt + T**:
+
+1. Apri le impostazioni delle scorciatoie da tastiera del tuo DE (GNOME, KDE, XFCE…)
+2. Crea una nuova scorciatoia:
+   - **Comando:** `kitty`
+   - **Scorciatoia:** `Ctrl+Alt+T`
+
+---
+
+## 🚀 5. Installare Starship Prompt
+
+[Starship](https://starship.rs/) è un prompt **moderno, veloce e altamente personalizzabile**.
+
+### Installazione
 
 ```bash
 curl -sS https://starship.rs/install.sh | sh
 ```
 
-Poi aggiungere al `.bashrc` o `.zshrc`:
+Poi aggiungi al tuo `.bashrc` o `.zshrc`:
 
 ```bash
 eval "$(starship init bash)"   # oppure zsh se usi zsh
 ```
 
-Ho scelto il **preset Powerline** e la **Nerd Font Cascadia Cove** per icone e simboli extra.  
-Font consigliato:  
-[Download Nerd Font Cascadia](https://www.nerdfonts.com/font-downloads)
+🧠 **Il mio setup:**  
+- Preset: **Powerline**
+Per applicare il PRESET incolla il comando:
+
+```bash
+starship preset pastel-powerline -o ~/.config/starship.toml
+```
+
+- Font: **Cascadia Cove Nerd Font** ([Download](https://www.nerdfonts.com/font-downloads))
+Scarica e installa un nerd font da questo sito per poter visualizzare correttamente le icone e i simboli
+Poi Riavvia il sistema
 
 ---
 
-## 6. Installare Fastfetch
+## ⚡ 6. Installare Fastfetch
 
-[Fastfetch](https://github.com/LinusDierheimer/fastfetch) mostra informazioni sul sistema in modo veloce e personalizzabile.
+[Fastfetch](https://github.com/LinusDierheimer/fastfetch) mostra le informazioni di sistema in modo elegante e veloce.
 
-Installazione su Debian/Ubuntu:
+### Installazione su Debian/Ubuntu
 
 ```bash
 sudo apt install fastfetch
 ```
 
-Configurazione personalizzata:
+### Configurazione
+0. In questo repository sono presenti 2 file  `logo.png` e `config.jsonc` : clicca sui file e scaricali usando il pulsante download nella pagina in alto a destra
+1. Copia `logo.png` e `config.jsonc`  in:
 
-1. Scarica il file `logo.png` e il file `config.jsonc` presente in questo repository e copialo in:
-
-```bash
+```
 ~/.config/fastfetch/
 ```
 
-2. Esempio di comando per lanciare Fastfetch:
+2. Esegui Fastfetch con:
 
 ```bash
 fastfetch --config ~/.config/fastfetch/config.jsonc
 ```
-3. oppure aggiungi in fondo al file .bashrc il comando `fastfetch`
+
+3. Oppure aggiungi al tuo `.bashrc`:
+
+```bash
+fastfetch
+```
 
 ---
 
-## 7. Risultato finale
+## 💡 Bonus Tips
 
-Dopo aver seguito tutti questi passaggi, il vostro terminale sarà:
+- 🎛️ Personalizza Starship: colori, simboli, layout e prompt su misura.  https://starship.rs/presets/
+- 🧩 Fastfetch può mostrare qualsiasi immagine.png e dato — basta modificare il `.jsonc` e modificare i valori di "logo" :
 
-- Moderno e veloce con Kitty
-- Coordinato al tema Dracula
-- Trasparente leggermente
-- Con tab shortcuts pratiche
-- Con prompt Starship Powerline + Nerd Font
-- Con Fastfetch personalizzato che mostra il logo e le info del sistema
-
----
-
-## 8. Bonus Tips
-
-- Aggiornare Kitty all’ultima versione regolarmente per avere nuove features e fix.
-- Starship permette infinite personalizzazioni: cambiate colori, simboli e layout.
-- Fastfetch può mostrare qualsiasi logo e informazioni che desiderate, basta modificare il `.jsonc`.
+"logo": {
+    "source": "/home/enthusiast_newbie/.config/fastfetch/logo.png",
+    "type": "kitty-direct",
+    "padding": { "top": 0, "left": 0 },
+    "width": 32
+  },
 
 ---
 
+💬 **Autore:** [Enthusiast Newbie](https://github.com/enthusiast-newbie)  
 **Seguimi sul mio canale YouTube** per vedere tutti i passaggi in azione e configurazioni extra:  
-[My YouTube Channel](#)
-
+[https://www.youtube.com/@EnthusiastNewbie](#)
