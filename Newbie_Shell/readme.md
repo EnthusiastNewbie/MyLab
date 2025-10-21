@@ -126,6 +126,8 @@ sudo apt install fastfetch
 
 ### Configurazione
 0. In questo repository sono presenti 2 file  `logo.png` e `config.jsonc` : clicca sui file e scaricali usando il pulsante download nella pagina in alto a destra
+
+
 1. Copia `logo.png` e `config.jsonc`  in:
 
 ```
@@ -151,12 +153,9 @@ fastfetch
 - 🎛️ Personalizza Starship: colori, simboli, layout e prompt su misura.  https://starship.rs/presets/
 - 🧩 Fastfetch può mostrare qualsiasi immagine.png e dato — basta modificare il `.jsonc` e modificare i valori di "logo" :
 
-"logo": {
+"logo":  {
     "source": "/home/enthusiast_newbie/.config/fastfetch/logo.png",
-    "type": "kitty-direct",
-    "padding": { "top": 0, "left": 0 },
-    "width": 32
-  },
+    
 
 ---
 
