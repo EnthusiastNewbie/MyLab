@@ -1,4 +1,3 @@
-# MyLab
 # 🖥️ Guida Completa al Server Monitor & Network Alert System
 
 ## 🔹 Introduzione
