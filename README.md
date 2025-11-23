@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/Banner.png" alt="MyLab Banner" width="800">
-</p>
-
 # 🧪 MyLab
 
 **Benvenuto nel mio Lab!**  
