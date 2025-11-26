@@ -19,6 +19,7 @@ mostra_menu() {
     echo "4. Pulisci CACHE pacchetti"
     echo "5. Info NETWORK"
     echo "6. Cerca Directory PESANTI"
+    echo "7. Cerca File"
     echo "0. Esci"
     echo "========================================="
 }
@@ -31,7 +32,7 @@ mostra_menu() {
 
 while true; do
     mostra_menu
-    read -p "Scegli un'opzione [0-6]: " scelta 
+    read -p "Scegli un'opzione [0-7]: " scelta 
 
     case $scelta in 
         1)
@@ -123,7 +124,7 @@ while true; do
             ;;
             
         6) 
-           echo "--- CACCIATORE DI SPAZIO ---"
+           echo "--- SPAZIO LIBERO CERCASI ---"
            echo "Dove vuoi cercare le cartelle più pesanti?"
            # Uso -n 1 così non devi premere INVIO dopo la lettera! (Topic 103.1)
            read -p "[H]ome utente / [A]ll system / [Z] Annulla: " -n 1 opzione
@@ -157,6 +158,30 @@ while true; do
             esac
             sleep 3
             ;;
+
+        7) 
+            echo "--- CERCA FILE ---"
+            echo "⚠️  Attenzione: Cerco in TUTTO il sistema senza filtri."
+            echo "    Se cerchi parole comuni, preparati al diluvio!"
+            echo ""
+            
+            read -p "Inserisci il nome (o parte) del file: " FILE_DA_CERCARE
+            
+            echo ""
+            echo "🚀 Ricerca avviata per '*$FILE_DA_CERCARE*'..."
+            sleep 1
+            
+            # IL COMANDO PURO
+            # Trova tutto, ignora maiuscole, nascondi errori, stampa tutto a video
+            find / -iname "*$FILE_DA_CERCARE*" 2> /dev/null
+            
+            echo ""
+            echo "---------------------------------------------------"
+            echo "✅ Ricerca terminata."
+            echo "Premi [INVIO] per pulire lo schermo e tornare al menu..."
+            read # <--- FONDAMENTALE: Blocca lo script finché non leggi!
+            ;;
+
            
 
 
