@@ -1,26 +1,33 @@
 #!/bin/bash
 
 # Funzione per mostrare il menu 
-# Cosa fa: Abbiamo racchiuso tutti i comandi echo (che stampano il testo a video) dentro un "contenitore" chiamato mostra_menu.
+# Ho racchiuso tutti i comandi echo (che stampano il testo a video) dentro un "contenitore" chiamato mostra_menu.
 # Il comando clear: Pulisce il terminale. 
 # Ogni volta che il menu viene ricaricato, cancella tutto il testo precedente, dando l'illusione di un programma "fisso" sullo schermo, 
-# invece di una lista infinita di testo che scorre.
 # Le Funzioni. Invece di riscrivere quelle 10 righe di echo ogni volta che vogliamo mostrare il menu, ci basta scrivere mostra_menu. 
 
 mostra_menu() {
     clear
     echo "========================================="
-    echo "   ENTHUSIAST NEWBIE SYSTEM MANAGER v1.0 "
+    echo " 🚀 ENTHUSIAST NEWBIE SYSTEM MANAGER 🚀  "
     echo "========================================="
     echo ""
-    echo "1. Mostra INFO sul sistema"
-    echo "2. AGGIORNA il sistema"
-    echo "3. Crea un nuovo UTENTE"
-    echo "4. Pulisci CACHE pacchetti"
-    echo "5. Info NETWORK"
-    echo "6. Cerca Directory PESANTI"
-    echo "7. Cerca File"
+    echo "1. 🖥️  INFO sul sistema"
+    echo ""
+    echo "2. 🔁 AGGIORNA il sistema"
+    echo ""
+    echo "3. 👤 GESTIONE UTENTE gestisci utenti"
+    echo ""
+    echo "4. 📦 GESTIONE PACCHETTI "
+    echo ""
+    echo "5. 🌐 NETWORK info"
+    echo ""
+    echo "6. 💾 DISK EXAM cerca file pesanti"
+    echo ""
+    echo "7. 🔎 FIND files"
+    echo ""
     echo "0. Esci"
+    echo ""
     echo "========================================="
 }
 
@@ -79,10 +86,15 @@ while true; do
             echo "$USERS"
             echo "-------------------------------------------"
             
-            read -p "Inserisci il nome del NUOVO utente: " utente
+            echo -e "Inserisci il nome del NUOVO utente che vuoi creare: \nDigita E per tornare al Menu Principale"
+            read utente
             
             if [ -z "$utente" ]; then
                 echo "❌ Errore: Nome utente non inserito."
+
+            elif [[ "$utente" = "e" || "$utente" = "E" ]] ; then
+            echo "❌ OPERAZIONE ANNULLATA... torno al Menu Principale"
+            
             else
                 echo "Lancio la procedura guidata per $utente..."
                 sleep 1
@@ -91,6 +103,7 @@ while true; do
             fi
             sleep 2
             ;;
+           
         4)
             echo "--- PULIZIA SISTEMA ---"
             echo "Rimuovo pacchetti orfani e cache..."
