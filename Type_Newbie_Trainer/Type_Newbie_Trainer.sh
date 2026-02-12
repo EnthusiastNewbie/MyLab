@@ -26,8 +26,9 @@ avvia_sessione() {
     echo "========================================"
     echo "      TYPE NEWBIE TRAINER               "
     echo "========================================"
-    echo -e "${BLUE}Trascrivi:${NC} $TARGET"
-    echo -e "Inizia a scrivere...\n"
+    echo -e "${BLUE}Trascrivi:"
+    echo -e "${NC}$TARGET"
+    echo -e "${BLUE}Inizia a scrivere...\n"
 
     # Registriamo il tempo di inizio in secondi
     START_TIME=$(date +%s)
