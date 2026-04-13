@@ -1,0 +1,120 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 4,
+    "margin-top": 10,
+    "margin-left": 15,
+    "margin-right": 15,
+
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "group/audio",
+        "network",
+        "bluetooth",
+        "battery",
+        "tray",
+        "custom/power"
+    ],
+
+    // --- GRUPPI A SCOMPARSA ---
+    "group/audio": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-muted",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+
+    // --- MODULI ---
+    "custom/launcher": {
+        "format": " ",
+        "on-click": "wofi --show drun",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "active": "",
+            "urgent": ""
+        }
+    },
+
+    "hyprland/window": {
+        "format": "| {class}",
+        "max-length": 20
+    },
+
+    "clock": {
+        "format": "  {:%H:%M}",
+        "format-alt": "  {:%A, %d %B}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+    "cpu": { "format": " {usage}%", "on-click": "alacritty -e btop" },
+    "memory": { "format": " {used}G", "on-click": "alacritty -e btop" },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": " Connected",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip": false
+    },
+    
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "tray": { "icon-size": 18, "spacing": 10 },
+
+    "custom/power": {
+        "format": "⏻ ",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // Opzionale: se vuoi dare priorità ai nomi
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    }
+}

@@ -1,0 +1,13 @@
+show=drun
+width=650
+height=550
+location=center
+always_parse_args=true
+show_generic_names=true
+allow_images=true
+image_size=32
+display_generic=true
+outline_width=2
+no_actions=true
+term=alacritty
+prompt=Cerca un'app...

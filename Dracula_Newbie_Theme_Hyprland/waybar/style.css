@@ -1,0 +1,114 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 15px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(40, 42, 54, 0.9); /* Dracula Background */
+    color: #f8f8f2;
+    border: 2px solid #bd93f9; /* Dracula Purple Border */
+    border-radius: 12px;
+}
+
+/* Container comuni */
+#workspaces, #clock, #cpu, #memory, #pulseaudio, #network, #battery, #tray, #bluetooth, #window {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Launcher */
+#custom-launcher {
+    color: #bd93f9;
+    font-size: 20px;
+    padding: 0 10px;
+    margin-left: 5px;
+}
+
+/* Audio */
+#pulseaudio {
+    color: #ff79c6;
+    background-color: rgba(68, 71, 90, 0.4);
+}
+
+/* Network & Memory */
+#network, #memory {
+    color: #8be9fd;
+}
+
+/* Clock */
+#clock {
+    color: #f1fa8c;
+    background-color: #44475a;
+}
+
+/* CPU */
+#cpu {
+    color: #50fa7b;
+}
+
+/* Battery */
+#battery {
+    color: #ffb86c;
+}
+#battery.charging {
+    color: #50fa7b;
+}
+#battery.critical {
+    color: #ff5555;
+    animation: blink 0.5s infinite alternate;
+}
+
+/* Power Button */
+#custom-power {
+    color: #ff5555;
+    font-size: 18px;
+    padding: 0 15px;
+}
+
+/* Workspaces */
+#workspaces button {
+    color: #6272a4;
+    padding: 0 5px;
+}
+#workspaces button.active {
+    color: #bd93f9;
+    border-bottom: 2px solid #ff79c6;
+}
+
+/* Sliders */
+#pulseaudio-slider trough {
+    min-height: 6px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: #44475a;
+}
+#pulseaudio-slider highlight {
+    min-height: 6px;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #bd93f9, #ff79c6);
+}
+
+@keyframes blink {
+    to {
+        color: #f8f8f2;
+        background-color: #ff5555;
+    }
+}
+
+/* Stile specifico per il Bluetooth */
+#bluetooth {
+    color: #bd93f9; /* Dracula Purple */
+    background-color: rgba(68, 71, 90, 0.4); /* Sfondo leggero per coerenza */
+}
+
+#bluetooth.connected {
+    color: #50fa7b; /* Diventa Verde Dracula quando connesso a qualcosa */
+}
+
+#bluetooth.off {
+    color: #6272a4; /* Grigio scuro quando spento */
+}

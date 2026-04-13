@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Dracula Newbie
+Comment=Dracula_Newbie Theme for Sddm
+Type=Service
+X-SDDM-Theme=Main.qml

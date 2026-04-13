@@ -1,0 +1,76 @@
+# =================================================================
+# ALACRITTY CONFIG - DRACULA_NEWBIE 
+# =================================================================
+
+[window]
+padding = { x = 12, y = 12 }
+dynamic_padding = true
+decorations = "None"
+opacity = 0.90
+blur = true
+startup_mode = "Windowed"
+title = "Alacritty"
+
+class = { instance = "Alacritty", general = "Alacritty" }
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+# -----------------------------------------------------------------
+# FONT CONFIGURATION 
+# -----------------------------------------------------------------
+[font]
+size = 11.5
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold Italic"
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+vi_mode_style = { shape = "Block", blinking = "Off" }
+blink_interval = 750
+unfocused_hollow = true
+
+# -----------------------------------------------------------------
+# DRACULA COLOR PALETTE
+# -----------------------------------------------------------------
+[colors.primary]
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[colors.normal]
+black   = "#21222c"
+red     = "#ff5555"
+green   = "#50fa7b"
+yellow  = "#f1fa8c"
+blue    = "#bd93f9"
+magenta = "#ff79c6"
+cyan    = "#8be9fd"
+white   = "#f8f8f2"
+
+[colors.bright]
+black   = "#6272a4"
+red     = "#ff6e6e"
+green   = "#69ff94"
+yellow  = "#ffffa5"
+blue    = "#d6acff"
+magenta = "#ff92df"
+cyan    = "#a4ffff"
+white   = "#ffffff"
+
+[env]
+TERM = "xterm-256color"

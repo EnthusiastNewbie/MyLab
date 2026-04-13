@@ -1,0 +1,63 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "auto", 
+        "padding": {
+            "top": 2,
+            "left": 2
+        },
+        "color": {
+            "1": "magenta", // Dracula Purple
+            "2": "cyan"    // Dracula Cyan
+        }
+    },
+    "display": {
+        "separator": " ➜  ",
+        "color": {
+            "keys": "cyan",    // Chiavi in Ciano
+            "title": "magenta" // Utente@Host in Viola
+        },
+        "key": {
+            "width": 22
+        }
+    },
+    "modules": [
+        "title",
+        {
+            "type": "separator",
+            "string": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        },
+        // --- SISTEMA (Colore Viola/Magenta) ---
+        { "type": "os", "key": "󰣇 Sistema ", "keyColor": "magenta" },
+        { "type": "host", "key": "󰌢 Hardware Host", "keyColor": "magenta" },
+        { "type": "kernel", "key": "󰌽 Versione Kernel", "keyColor": "magenta" },
+        { "type": "uptime", "key": "󱘖 Tempo Attività", "keyColor": "magenta" },
+        { "type": "packages", "key": "󰏖 Packages", "keyColor": "magenta" },
+        { "type": "shell", "key": "󱆃 Shell Attiva", "keyColor": "magenta" },
+        
+        { "type": "separator", "string": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" },
+        // --- DESKTOP (Colore Ciano) ---
+        { "type": "wm", "key": "󱂬 Window Manager", "keyColor": "cyan" },
+        { "type": "theme", "key": "󰉼 Tema GTK", "keyColor": "cyan" },
+        { "type": "icons", "key": "󰀻 Set Icone", "keyColor": "cyan" },
+        { "type": "terminal", "key": "󰆍 Terminale", "keyColor": "cyan" },
+        { "type": "terminalfont", "key": "󰛖 Font Terminale", "keyColor": "cyan" },
+
+        { "type": "separator", "string": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" },
+        // --- PERFORMANCE (Colore Viola/Magenta) ---
+        { "type": "cpu", "key": "󰻠 Processore (CPU)", "keyColor": "magenta" },
+        { "type": "memory", "key": "󰍛 Memoria RAM", "keyColor": "magenta" },
+        { "type": "disk", "key": "󰋊 Disco Principale", "keyColor": "magenta" },
+
+        { "type": "separator", "string": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" },
+        // --- EXTRA (Colore Ciano) ---
+        { "type": "localip", "key": "󰩟 Indirizzo IP", "keyColor": "cyan" },
+        { "type": "battery", "key": "󰁹 Stato Batteria", "keyColor": "cyan" },
+        { "type": "separator", "string": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" },
+        {
+            "type": "custom",
+            // Footer personalizzato con i colori Dracula
+            "format": "  \u001b[35m⚡\u001b[0m  \u001b[36mwww.enthusiastnewbie.com\u001b[0m"
+        }
+    ]
+}

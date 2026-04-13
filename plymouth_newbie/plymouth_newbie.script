@@ -1,0 +1,63 @@
+// --- 1. SETUP LOGO ---
+logo_raw = Image("arch_logo.png");
+sw = Window.GetWidth();
+sh = Window.GetHeight();
+
+// --- SETUP LOGO PERSONALE (TOP-LEFT) ---
+newbie_logo_raw = Image("newbie_logo.png");
+
+// Scaliamo il logo al 10% della larghezza dello schermo per discrezione
+nl_w = sw * 0.10; 
+nl_h = newbie_logo_raw.GetHeight() * (nl_w / newbie_logo_raw.GetWidth());
+newbie_logo_img = newbie_logo_raw.Scale(nl_w, nl_h);
+
+newbie_logo = Sprite(newbie_logo_img);
+
+// Posizionamento: 20 pixel di margine dal bordo superiore e sinistro
+newbie_logo.SetPosition(20, 20, 5);
+
+// Scala il logo al 30% della larghezza dello schermo per massima visibilità
+l_w = sw * 0.3; 
+l_h = logo_raw.GetHeight() * (l_w / logo_raw.GetWidth());
+logo_img = logo_raw.Scale(l_w, l_h);
+logo = Sprite(logo_img);
+
+// Posiziona il logo esattamente al centro (offset di 65px verso l'alto per far spazio alla barra)
+logo.SetPosition(sw/2 - l_w/2, sh/2 - l_h/2 - 65, 10);
+
+// --- 2. SETUP BARRA DI PROGRESSO ---
+point_img = Image("point.png");
+b_w = l_w;   // La barra sarà larga quanto il logo
+b_h = 5;     // Spessore sottile ma visibile
+b_x = sw/2 - b_w/2;
+b_y = sh/2 + l_h/2 + 20; // 20 pixel sotto il logo
+
+// Sfondo della barra (Grigio scuro creato tramite opacità)
+bg_bar_img = point_img.Scale(b_w, b_h);
+bg_bar = Sprite(bg_bar_img);
+bg_bar.SetPosition(b_x, b_y, 11);
+bg_bar.SetOpacity(0.3); 
+
+// Parte attiva della barra (Bianca)
+progress_bar_sprite = Sprite();
+progress_bar_sprite.SetPosition(b_x, b_y, 12);
+
+// --- 3. AGGIORNAMENTO IN TEMPO REALE ---
+fun refresh_callback (duration, progress) {
+  // Gestiamo il caso in cui il progresso sia nullo all'inizio
+  if (progress <= 0) p_width = b_w * 0.01;
+  else p_width = b_w * progress;
+  
+  p_img = point_img.Scale(p_width, b_h);
+  progress_bar_sprite.SetImage(p_img);
+}
+Plymouth.SetBootProgressFunction(refresh_callback);
+
+// --- 4. PULIZIA ALL'USCITA ---
+fun quit_callback () {
+  logo.SetOpacity(0);
+  bg_bar.SetOpacity(0);
+  progress_bar_sprite.SetOpacity(0);
+  newbie_logo.SetOpacity(0);
+}
+Plymouth.SetQuitFunction(quit_callback);
