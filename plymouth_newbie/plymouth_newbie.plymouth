@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Plymouth Newbie
+Description=Tema personalizzato Enthusiast Newbie con logo e barra di caricamento.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/plymouth_newbie
+ScriptFile=/usr/share/plymouth/themes/plymouth_newbie/plymouth_newbie.script
